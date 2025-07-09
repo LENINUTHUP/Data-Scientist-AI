@@ -259,7 +259,7 @@ def render_upload_page():
                 padding-top: 5rem;
             }
             .title {
-                font-size: 2.5rem; 
+                font-size: 3rem; 
                 font-weight: 700; 
                 color: #E2E8F0; 
                 letter-spacing: 0.1em;
@@ -307,6 +307,49 @@ def render_upload_page():
         )
         
         st.markdown('</div>', unsafe_allow_html=True)
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        with st.expander("Read Instructions & Conditions"):
+            st.markdown("""
+            ### How to Use the AI Data Science Pipeline
+
+            Welcome! This guide will walk you through the steps to analyze your data using this tool. Please read the following conditions to ensure the best results and avoid errors.
+
+            **1. Upload Your Data**
+            - **Format:** Your data must be in a **`.csv`** file.
+            - **Structure:** The file should contain structured data with clear column headers.
+            - **Date Columns (Crucial for Forecasting):** If your data includes a date column for time-series analysis, please ensure it is in a standard date format (e.g., `YYYY-MM-DD`, `MM/DD/YYYY`, `DD-MM-YYYY`). The application will attempt to convert it automatically, but a consistent format is best.
+
+            **2. Select Your Task**
+            - After uploading, you will be asked to choose a primary task.
+            - **Data Suitability:** Ensure your data is appropriate for the selected task to avoid errors.
+                - **Predictive Modeling:** Choose this if your goal is to forecast a future value (like sales) or classify an outcome (like customer churn). **Your data must have a clear target column that you want to predict.**
+                - **Clustering Analysis:** Choose this if you want to discover natural groupings or segments in your data (e.g., identify different customer types). **This task works best when your dataset has several numerical features.**
+
+            **3. Preprocess Your Data**
+            - This is a critical step to clean your data for the model.
+            - **Missing Values:** Choose a method to fill any empty cells (e.g., using the mean of the column).
+            - **Scaling:** For numerical columns, you can scale the data to a standard range, which often improves model performance.
+            - **Encoding:** Text-based columns will be automatically converted into a numerical format that models can understand.
+
+            **4. Explore Your Data (EDA)**
+            - Visualize your data to find patterns and insights before modeling.
+            - **Univariate Analysis:** View the distribution of a single column.
+            - **Bivariate Analysis:** Explore the relationship between two columns.
+            - **Correlation Heatmap:** See how all numerical features relate to each other.
+
+            **5. Modeling and Evaluation**
+            - **Model Selection:** The application will recommend a suitable model, but you are free to choose another from the list.
+            - **Training:** Click "Train Model" to start the automated training process.
+            - **Evaluation:** Once trained, you will see a detailed evaluation of the model's performance, including charts and key metrics. For time-series forecasts, this will include trend and seasonality components.
+
+            **6. Download Your Report**
+            - On the final "Evaluation" page, navigate to the **"Automated Report"** tab.
+            - Here you can download:
+                - The processed data as a CSV file.
+                - The trained model as a `.pkl` file for future use.
+                - A comprehensive PDF report summarizing the entire analysis with all the charts you generated.
+            """)
 
     if uploaded_file:
         try:
