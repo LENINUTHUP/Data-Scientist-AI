@@ -55,8 +55,7 @@ except ImportError:
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="AI Data Science Pipeline",
-    page_icon="�",
+    page_title="Data Scientist AI",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -260,7 +259,7 @@ def render_upload_page():
                 padding-top: 5rem;
             }
             .title {
-                font-size: 2rem; 
+                font-size: 2.5rem; 
                 font-weight: 700; 
                 color: #E2E8F0; 
                 letter-spacing: 0.1em;
@@ -271,7 +270,7 @@ def render_upload_page():
                 max-width: 896px; 
             }
             .upload-header {
-                font-size: 3rem; 
+                font-size: 2rem; 
                 font-weight: bold;
                 color: #8A2BE2;
                 margin-bottom: 2rem;
