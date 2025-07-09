@@ -5,6 +5,8 @@
 **Author:** Lenin Uthup  
 **Last Updated:** July 2025
 
+ [Tap to view the Live Website ](https://data-scientist-ai-pipeline.streamlit.app/)
+
 ---
 
 ##  Project Overview
