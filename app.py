@@ -41,12 +41,6 @@ except ImportError:
     XGB_AVAILABLE = False
 
 try:
-    import lightgbm as lgb
-    LGBM_AVAILABLE = True
-except ImportError:
-    LGBM_AVAILABLE = False
-
-try:
     import catboost as cb
     CATBOOST_AVAILABLE = True
 except ImportError:
@@ -760,7 +754,6 @@ def render_modeling_page():
 
     ml_algorithms = ["Random Forest", "Gradient Boosting", "Support Vector Machine (SVM)", "Linear/Logistic Regression"]
     if XGB_AVAILABLE: ml_algorithms.append("XGBoost")
-    if LGBM_AVAILABLE: ml_algorithms.append("LightGBM")
     if CATBOOST_AVAILABLE: ml_algorithms.append("CatBoost")
     ts_algorithms = ["Prophet", "ARIMA"] if PROPHET_AVAILABLE else []
     
@@ -818,7 +811,6 @@ def render_modeling_page():
                     "Support Vector Machine (SVM)": SVR() if problem_type == "Regression" else SVC(random_state=42, probability=True),
                     "Linear/Logistic Regression": LinearRegression() if problem_type == "Regression" else LogisticRegression(random_state=42, max_iter=1000),
                     "XGBoost": xgb.XGBRegressor(random_state=42) if problem_type == "Regression" else xgb.XGBClassifier(random_state=42),
-                    "LightGBM": lgb.LGBMRegressor(random_state=42) if problem_type == "Regression" else lgb.LGBMClassifier(random_state=42),
                     "CatBoost": cb.CatBoostRegressor(random_state=42, verbose=0) if problem_type == "Regression" else cb.CatBoostClassifier(random_state=42, verbose=0)
                 }
                 model = model_options[algorithm]
@@ -1306,3 +1298,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
