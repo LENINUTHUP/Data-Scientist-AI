@@ -1,7 +1,7 @@
 
 #  AI Data Scientist – Automated Machine Learning Pipeline
 
-**Version:** 2.1  
+**Version:** 3.1  
 **Author:** Lenin Uthup  
 **Last Updated:** July 2025
 
